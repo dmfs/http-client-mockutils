@@ -23,11 +23,11 @@ import java.net.URI;
 import org.dmfs.httpclient.HttpResponse;
 import org.dmfs.httpclient.HttpResponseEntity;
 import org.dmfs.httpclient.HttpStatus;
-import org.dmfs.httpclient.headers.BasicHeaderType;
+import org.dmfs.httpclient.headers.BasicSingletonHeaderType;
 import org.dmfs.httpclient.headers.EmptyHeaders;
 import org.dmfs.httpclient.headers.Headers;
 import org.dmfs.httpclient.headers.HttpHeaders;
-import org.dmfs.httpclient.headers.SimpleHeaderType;
+import org.dmfs.httpclient.headers.SingletonHeaderType;
 import org.dmfs.httpclient.typedentity.EntityConverter;
 
 
@@ -42,7 +42,7 @@ public class StaticEntityMockResponse implements HttpResponse
 {
 
 	// TODO: remove this once http-client-headers contains a definition for this
-	private final static SimpleHeaderType<Long> CONTENT_LENGTH = new BasicHeaderType<Long>("content-length", new EntityConverter<Long>()
+	private final static SingletonHeaderType<Long> CONTENT_LENGTH = new BasicSingletonHeaderType<Long>("content-length", new EntityConverter<Long>()
 	{
 		public Long value(String valueString)
 		{

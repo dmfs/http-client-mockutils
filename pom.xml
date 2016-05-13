@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.dmfs</groupId>
 	<artifactId>http-client-mockutils</artifactId>
-	<version>0.1</version>
+	<version>0.2</version>
 	<packaging>jar</packaging>
 	<name>http-client-mockutils</name>
-	<description>Request/Response testing utility for
-		http-client-essentials.</description>
+	<description>Testing utility for http-client-essentials.
+	</description>
 	<url>https://github.com/dmfs/http-client-mockutils</url>
 	<licenses>
 		<license>
@@ -45,20 +45,20 @@
 		<dependency>
 			<groupId>org.dmfs</groupId>
 			<artifactId>http-client-essentials</artifactId>
-			<version>0.5</version>
+			<version>0.6</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.dmfs</groupId>
 			<artifactId>http-client-types</artifactId>
-			<version>0.5</version>
+			<version>0.6</version>
 		</dependency>
 
 
 		<dependency>
 			<groupId>org.dmfs</groupId>
 			<artifactId>http-client-headers</artifactId>
-			<version>0.5</version>
+			<version>0.6</version>
 		</dependency>
 	</dependencies>
 
