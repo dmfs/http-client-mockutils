@@ -15,20 +15,18 @@
  * limitations under the License.
  */
 
-package org.dmfs.httpclient.mockutils.executors;
+package org.dmfs.httpessentials.mockutils.executors;
 
 import java.io.IOException;
 import java.net.URI;
 
-import org.dmfs.httpclient.HttpRequest;
-import org.dmfs.httpclient.HttpRequestExecutor;
-import org.dmfs.httpclient.HttpStatus;
-import org.dmfs.httpclient.OnRedirectCallback;
-import org.dmfs.httpclient.OnResponseCallback;
-import org.dmfs.httpclient.exceptions.ProtocolError;
-import org.dmfs.httpclient.exceptions.ProtocolException;
-import org.dmfs.httpclient.exceptions.RedirectionException;
-import org.dmfs.httpclient.exceptions.UnexpectedStatusException;
+import org.dmfs.httpessentials.client.HttpRequest;
+import org.dmfs.httpessentials.client.HttpRequestExecutor;
+import org.dmfs.httpessentials.client.OnRedirectCallback;
+import org.dmfs.httpessentials.exceptions.ProtocolError;
+import org.dmfs.httpessentials.exceptions.ProtocolException;
+import org.dmfs.httpessentials.exceptions.RedirectionException;
+import org.dmfs.httpessentials.exceptions.UnexpectedStatusException;
 
 
 /**
@@ -56,20 +54,6 @@ public class ExceptionMockServerExecutor implements HttpRequestExecutor
 
 
 	@Override
-	public <T> T execute(URI uri, HttpRequest<T> request) throws IOException, ProtocolError, ProtocolException, RedirectionException, UnexpectedStatusException
-	{
-		return execute(uri, request, new OnRedirectCallback()
-		{
-			@Override
-			public boolean followRedirect(HttpStatus status, URI redirectingLocation, URI newLocation)
-			{
-				return false;
-			}
-		});
-	}
-
-
-	@Override
 	public <T> T execute(URI uri, HttpRequest<T> request, OnRedirectCallback redirectionCallback) throws IOException, ProtocolError, ProtocolException,
 		RedirectionException, UnexpectedStatusException
 	{
@@ -86,26 +70,4 @@ public class ExceptionMockServerExecutor implements HttpRequestExecutor
 			throw new RuntimeException("Illegal Exception type passed", e);
 		}
 	}
-
-
-	@Override
-	public <T> void execute(URI uri, HttpRequest<T> request, OnResponseCallback<T> callback)
-	{
-		execute(uri, request, callback, new OnRedirectCallback()
-		{
-			@Override
-			public boolean followRedirect(HttpStatus status, URI redirectingLocation, URI newLocation)
-			{
-				return false;
-			}
-		});
-	}
-
-
-	@Override
-	public <T> void execute(URI uri, HttpRequest<T> request, OnResponseCallback<T> callback, OnRedirectCallback redirectionCallback)
-	{
-		callback.onError(uri, mException);
-	}
-
 }

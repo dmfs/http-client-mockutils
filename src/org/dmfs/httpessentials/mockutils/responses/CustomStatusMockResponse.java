@@ -14,46 +14,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.dmfs.httpclient.mockutils.responses;
+
+package org.dmfs.httpessentials.mockutils.responses;
 
 import java.net.URI;
 
-import org.dmfs.httpclient.HttpResponse;
-import org.dmfs.httpclient.HttpResponseEntity;
-import org.dmfs.httpclient.HttpStatus;
-import org.dmfs.httpclient.headers.Headers;
+import org.dmfs.httpessentials.HttpStatus;
+import org.dmfs.httpessentials.client.HttpResponse;
+import org.dmfs.httpessentials.client.HttpResponseEntity;
+import org.dmfs.httpessentials.headers.Headers;
 
 
 /**
- * An {@link HttpResponse} that overrides request and response uri of another {@link HttpResponse}.
+ * A {@link HttpResponse} decorator that overrides the status or an {@link HttpResponse}.
  * 
  * @author Marten Gajda <marten@dmfs.org>
  */
-public final class CustomUrisMockResponse implements HttpResponse
+public class CustomStatusMockResponse implements HttpResponse
 {
-	private final URI mRequestUri;
-	private final URI mResponseUri;
+
 	private final HttpResponse mDecorated;
+	private final HttpStatus mStatus;
 
 
-	public CustomUrisMockResponse(HttpResponse decorated, URI requestUri)
+	public CustomStatusMockResponse(HttpResponse decorated, HttpStatus status)
 	{
-		this(decorated, requestUri, requestUri);
-	}
-
-
-	public CustomUrisMockResponse(HttpResponse decorated, URI requestUri, URI responseUri)
-	{
-		mRequestUri = requestUri;
-		mResponseUri = responseUri;
 		mDecorated = decorated;
+		mStatus = status;
 	}
 
 
 	@Override
 	public HttpStatus status()
 	{
-		return mDecorated.status();
+		return mStatus;
 	}
 
 
@@ -74,14 +68,13 @@ public final class CustomUrisMockResponse implements HttpResponse
 	@Override
 	public URI requestUri()
 	{
-		return mRequestUri;
+		return mDecorated.requestUri();
 	}
 
 
 	@Override
 	public URI responseUri()
 	{
-		return mResponseUri;
+		return mDecorated.responseUri();
 	}
-
 }

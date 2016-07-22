@@ -15,20 +15,20 @@
  * limitations under the License.
  */
 
-package org.dmfs.httpclient.mockutils.responses;
+package org.dmfs.httpessentials.mockutils.responses;
 
 import java.io.IOException;
 import java.net.URI;
 
-import org.dmfs.httpclient.HttpResponse;
-import org.dmfs.httpclient.HttpResponseEntity;
-import org.dmfs.httpclient.HttpStatus;
-import org.dmfs.httpclient.headers.BasicSingletonHeaderType;
-import org.dmfs.httpclient.headers.EmptyHeaders;
-import org.dmfs.httpclient.headers.Headers;
-import org.dmfs.httpclient.headers.HttpHeaders;
-import org.dmfs.httpclient.headers.SingletonHeaderType;
-import org.dmfs.httpclient.typedentity.EntityConverter;
+import org.dmfs.httpessentials.HttpStatus;
+import org.dmfs.httpessentials.client.HttpResponse;
+import org.dmfs.httpessentials.client.HttpResponseEntity;
+import org.dmfs.httpessentials.headers.BasicSingletonHeaderType;
+import org.dmfs.httpessentials.headers.EmptyHeaders;
+import org.dmfs.httpessentials.headers.Headers;
+import org.dmfs.httpessentials.headers.HttpHeaders;
+import org.dmfs.httpessentials.headers.SingletonHeaderType;
+import org.dmfs.httpessentials.typedentity.EntityConverter;
 
 
 /**

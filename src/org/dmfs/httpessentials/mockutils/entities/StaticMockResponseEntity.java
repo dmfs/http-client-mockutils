@@ -15,15 +15,15 @@
  * limitations under the License.
  */
 
-package org.dmfs.httpclient.mockutils.entities;
+package org.dmfs.httpessentials.mockutils.entities;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 
-import org.dmfs.httpclient.HttpResponseEntity;
-import org.dmfs.httpclient.types.MediaType;
+import org.dmfs.httpessentials.client.HttpResponseEntity;
+import org.dmfs.httpessentials.types.MediaType;
 
 
 /**
