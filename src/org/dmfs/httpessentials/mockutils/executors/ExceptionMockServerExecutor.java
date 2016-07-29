@@ -22,7 +22,6 @@ import java.net.URI;
 
 import org.dmfs.httpessentials.client.HttpRequest;
 import org.dmfs.httpessentials.client.HttpRequestExecutor;
-import org.dmfs.httpessentials.client.OnRedirectCallback;
 import org.dmfs.httpessentials.exceptions.ProtocolError;
 import org.dmfs.httpessentials.exceptions.ProtocolException;
 import org.dmfs.httpessentials.exceptions.RedirectionException;
@@ -54,8 +53,7 @@ public class ExceptionMockServerExecutor implements HttpRequestExecutor
 
 
 	@Override
-	public <T> T execute(URI uri, HttpRequest<T> request, OnRedirectCallback redirectionCallback) throws IOException, ProtocolError, ProtocolException,
-		RedirectionException, UnexpectedStatusException
+	public <T> T execute(URI uri, HttpRequest<T> request) throws IOException, ProtocolError, ProtocolException, RedirectionException, UnexpectedStatusException
 	{
 		try
 		{
